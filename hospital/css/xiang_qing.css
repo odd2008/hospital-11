@@ -1,0 +1,269 @@
+* {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+    margin: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+.bdy {
+    width: 7.5rem;
+    height: 13.33rem;
+    background: url(../img/line/gua_bancground.png) no-repeat center center/100% 100%;
+}
+
+.head {
+    padding: 0 0.39rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    height: 0.9rem;
+    background: url(../img/line/bg_title.png) no-repeat center center/100% 100%;
+    padding-top: 0.12rem;
+}
+
+.goback {
+    display: inline-block;
+    width: 1.15rem;
+    height: 0.69rem;
+    margin-top: -0.08rem;
+    border-radius: 0 0.07rem 0.07rem 0;
+    font-family: SourceHanSansCN;
+    text-align: center;
+    font-size: 0;
+}
+
+.goback img {
+    vertical-align: -0.1rem;
+}
+
+.title {
+    width: 2.63rem;
+    height: 0.41rem;
+    font-family: SourceHanSansCN;
+    font-size: 0.3125rem;
+    text-align: center;
+    font-weight: bold;
+    font-stretch: normal;
+    letter-spacing: 0.05rem;
+    color: #ffffff;
+    margin-top: 0.06rem;
+}
+
+.checktime {
+    width: 1.16rem;
+    height: 0.16rem;
+    font-family: SourceHanSansCN;
+    font-size: 0.15rem;
+    line-height: 0.17rem;
+    color: #ffffff;
+    justify-content: space-between;
+}
+
+.day {
+    margin-right: 0.05rem;
+}
+
+.time {
+    font-family: SourceHanSansCN;
+    font-size: 0.24rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.42rem;
+    letter-spacing: 0;
+    color: #ffffff;
+}
+
+.face_container {
+    width: 6.65rem;
+    height: 11.71rem;
+    border-radius: 0.02rem;
+    /* background: url(../img/middle_bgc.png) no-repeat center center/100% 100%; */
+    margin: 0.02rem auto;
+    padding-top: 0.30rem;
+}
+
+/*第一方块  开始*/
+
+.tips {
+    width: 6.25rem;
+    background-color: rgba(204, 225, 255, .1);
+    border-radius: 0.10rem;
+    margin: 0.7344rem auto 0.2284rem;
+    position: relative;
+    padding-bottom: 0.2284rem;
+}
+
+.pic_img {
+    width: 1.0417rem;
+    height: 1.0417rem;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    right: 0;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0.08rem 0.1rem 0px rgba(32, 124, 253, 0.3);
+    border: solid 0.0209rem #ffffff;
+    margin-left: -0.5209rem;
+    margin-top: -0.5209rem;
+}
+
+.top {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding-top: 0.6737rem;
+}
+
+.top_name {
+    width: 100%;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 0.3125rem;
+    text-align: center;
+    font-weight: normal;
+    letter-spacing: 0.01rem;
+    color: #ffffff;
+    margin: 0.0834rem 0;
+}
+
+.top_keshi {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.1rem;
+    line-height: 1;
+}
+
+.no_con {
+    width: 0.2084rem;
+    height: 100%;
+    background-color: transparent;
+}
+
+.top_keshi p {
+    font-family: SourceHanSansCN-Regular;
+    font-size: 0.25rem;
+    text-align: center;
+    font-weight: normal;
+    color: #ffffff;
+    letter-spacing: 0.01rem;
+    margin: 0.0834rem 0;
+    line-height: 1;
+}
+
+.top_yiyuan {
+    width: 100%;
+    height: 0.25rem;
+    line-height: 1;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 0.2223rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0.01rem;
+    color: #ffffff;
+    margin-top: 0.12rem;
+    text-align: center;
+    margin-left: 0;
+}
+
+/*第一方块  结束*/
+
+/*第二方块  开始*/
+
+.pic {
+    width: 6.25rem;
+    height: 8.25rem;
+    background-color: rgba(204, 225, 255, .1);
+    border-radius: 0.10rem;
+    margin: 0 auto;
+}
+
+.pos {
+    padding-top: 0.2084rem;
+    padding-left: 0.4rem;
+    padding-bottom: 0.1945rem;
+}
+
+.tit {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pic_bgimg {
+    width: 0.25rem;
+    height: 0.25rem;
+    line-height: 0.25rem;
+    background: url(../img/line/biaoji.png) no-repeat center center/100% 100%;
+}
+
+.pic_bgimg p {
+    width: 1.097rem;
+    height: 0.26rem;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 0.27rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.33rem;
+    letter-spacing: 0px;
+    color: #ffffff;
+    margin-top: 0.2rem;
+    margin-left: 0.4rem;
+}
+
+.tit p {
+    font-family: SourceHanSansCN-Regular;
+    font-size: 0.27rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1;
+    letter-spacing: 0.01rem;
+    color: #ffffff;
+    margin-top: 0;
+    margin-left: 0.1389rem;
+}
+
+.pic .pic_p {
+    width: calc(100% - 0.8rem);
+    height: 7.2861rem;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 0.20rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.3125rem;
+    letter-spacing: 0.01rem;
+    color: #ffffff;
+    margin: 0rem 0.4rem;
+    text-align: justify;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.wuren {
+    width: 6.22rem;
+    height: 4.3rem;
+    background-color: rgba(204, 225, 255, .1);
+    border-radius: 0.138rem;
+    margin: 0 auto;
+    margin-top: 0.194rem;
+    position: relative;
+}
+
+.wuren .wuren_intr {
+    width: 5.8rem;
+    height: 4rem;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 0.20rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.3125rem;
+    letter-spacing: 0px;
+    color: #ffffff;
+    margin-top: 0.2rem;
+    margin-left: 0.2rem;
+}

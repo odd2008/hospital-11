@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>医生详情</title>
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/tool.css">
+  <link rel="stylesheet" href="../css/xiang_qing.css">
+  <style>
+    [v-cloak] {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bdy" id="app" v-if="resBody" v-cloak>
+    <div class="head">
+      <div class="goback" @click="goOff()" style="margin-top:-0.08rem">
+        <img src="../img/line/goback.png" width="100%" alt="">
+      </div>
+      <div class="title">{{resBody.DEPARTMENT_NAME}}</div>
+      <div class="checktime">
+        <div class="date"></div>
+        <div>
+          <span class="day"></span>
+          <span class="time"></span>
+        </div>
+      </div>
+    </div>
+    <div class="face_container">
+      <div class="tips clear">
+        <div class="pic_img">
+          <img :src="resBody.DOCTOR_AVATER" width="100%" style="display:block" alt="">
+        </div>
+        <div class="top">
+          <div class="top_name">{{resBody.DOCTOR_NAME}}</div>
+          <div class="top_keshi">
+            <p>{{resBody.POST_NAME}}</p>
+            <p class="no_con"></p>
+            <p>{{resBody.DEPARTMENT_NAME}}</p>
+          </div>
+          <div class="top_yiyuan">郑州联勤保障医院-九八八医院</div>
+        </div>
+      </div>
+      <div class="pic">
+        <div class="pos">
+          <div class="tit">
+            <div class="pic_bgimg">
+            </div>
+            <p>医生介绍</p>
+          </div>
+        </div>
+        <p class="pic_p">{{resBody.DOCTOR_REMARK}}</p>
+      </div>
+      <!--<div class="gua_hao"></div>-->
+    </div>
+  </div>
+  <script src="../js/rem.js"></script>
+  <script src="../js/gettime.js"></script>
+  <script src="../pubJs/axios.js"></script>
+  <script src="../../pub.js"></script>
+  <script src="../pubJs/vue.js"></script>
+  <script src="../pubJs/jquery-1.12.4.js"></script>
+  <script src="../../config.js"></script>
+  <script src="../js/xiang_qing.js"></script>
+</body>
+
+</html>

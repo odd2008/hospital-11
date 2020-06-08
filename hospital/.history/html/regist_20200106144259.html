@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>挂号3</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="stylesheet" href="../css/regist.css">
+    <style>
+        #ul-imgs.transition{
+			transition:all 3.5s linear;
+		}
+    </style>
+</head>
+
+<body>
+    <div id="app" v-if="docList">
+        <div class="bdy">
+            <div class="head">
+                <div class="title">{{department.department_name}}</div>
+                <div class="checktime">
+                    <div class="date"></div>
+                    <div>
+                        <span class="day"></span>
+                        <span class="time"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <!-- 医生部门信息 -->
+                <div class="content" style="overflow: hidden;position:absolute">
+                    <ul id="ul-imgs" style="width:500%;display: flex;justify-content: space-between;" >
+                        <li v-for="(val,idx) of docList" :key="idx" style="width: 20%;height: 100%;">
+                            <div class="title">
+                                <div class="title_name">
+                                    {{val.expert_type_name}}门诊
+                                </div>
+                                <div class="right">
+                                    <div class="shu">
+                                        <span>8</span>
+                                    </div>
+                                    <div class="zhen_name">
+                                        诊室
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content_body">
+                                <div class="left">
+                                    <img src="../img/1.jpg" alt="" width="100%" height="100%">
+                                </div>
+                                <div class="right">
+                                    <div class="top">
+                                        <div class="section">
+                                            <p>医生</p>
+                                            <p>{{val.doctor_name}}</p>
+                                        </div>
+                                        <div class="section">
+                                            <p>职称</p>
+                                            <p>{{val.post_name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="detail">
+                                            <!-- <table></table> -->
+                                            <p style="display: -webkit-box;-webkit-box-orient: vertical;   -webkit-line-clamp:4;overflow: hidden;">
+                                                {{val.doctor_remark}}
+                                            </p>
+                                            <a @click="doctorDetailed(val.doctor_id,'UK')">
+                                                【详细介绍】
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="circle">
+                    <ul id="ul-idxs">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+						<li></li>
+                    </ul>
+                </div>
+
+                <!-- 就诊信息 -->
+                <!-- 当前挂号无人看诊 -->
+        <div v-if="arr.length=='0'" class="wu_ren">
+            <div class="wu_ren_bord"> 
+              <p>当前诊室无患者看诊，可随时看诊</p>
+            </div>
+          </div>
+          <!-- 有人看诊 -->
+          <div v-else class="wuren clear">
+            <table></table>
+            <div class="wuren_cbord scrollDiv clear"  id="s1" > 
+              <ul>
+                <li v-for="(vl,ind) in jiuzhen" :key="ind" style="font-size: 0.25rem;">
+                  <a href="#">
+                    <p class="jiu_zhen">请{{vl.register_order}}号{{vl.user_name}}到<span class="gren" >{{vl.department_name}}</span>诊室就诊</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <ul class="u_l " v-for="(value,index) in arr" :key="index" >
+              <li class="wuren_bord" v-if="index==0">
+                  <div class="p1">
+                    <div class="p1_s1">
+                      <p>等待就诊</p> 
+                    </div>                                   
+                  </div>
+                  <div class="wuren_c1">
+                    <p>{{value.register_order}}</p>  
+                  </div>
+                  <div class="wuren_c2">
+                    <p>{{value.user_name}}</p>
+                  </div>
+                  <div></div>
+              </li>
+            </ul>
+          </div>
+          <div class="gua_hao" @click="changeStatus"></div>
+          </div>
+                <!-- 底部信息 -->
+                <footer id="footer" v-show="jiance==0&&show==1">
+                    <table></table>
+                    <div class="guahao">
+                        <p>
+                            挂号
+                        </p>
+                        <p @click="shut">
+                            
+                        </p>
+                        <div>
+                            <table></table>
+                            <p id="jiance">
+                                正在检测中...
+                            </p>
+                        </div>
+                    </div>
+                </footer> 
+                <footer id="footer" v-show="jiance==1&&show==1">
+                    <table></table>
+                    <div class="guahao">
+                        <p>
+                            挂号
+                        </p>
+                        <p @click="shut">
+                            
+                        </p>
+                        <div>
+                            <table></table>
+                            <div class="info">
+                                <div class="mess">
+                                    <div>就诊时间:</div>
+                                    <div>{{time}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊科室:</div>
+                                    <div>{{department.department_name}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊医生:</div>
+                                    <div id="choice">
+                                        <div v-for="(val,idx) in docList" :key="idx" class="yi" :class="{active:isActive==idx}" @click="changeList(idx,val.doctor_id)">
+                                            {{val.doctor_name}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊排队:</div>
+                                    <div>{{num}}人</div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊人:</div>
+                                    <div>{{patInfo.user_name}}</div>
+                                </div>
+                            </div>
+                            <div class="btns">
+                                <p class="btn que" @click="show=-1"></p>
+                                <p class="btn qu" @click="success"></p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>  
+                <footer id="footer" v-show="jiance==2&&show==1">
+                    <table></table>
+                    <div class="guahao">
+                        <p style="width:1.25rem">
+                            挂号
+                        </p>
+                        <p @click="shut">
+                            
+                        </p>
+                        <div>
+                            <table></table>
+                            <div class="info" style="margin:0 auto;margin-top:0.75rem;">
+                                <div class="mess">
+                                    <div>就诊时间:</div>
+                                    <div>{{time}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊编号:</div>
+                                    <div>{{patInfo.register_order}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div style="width: 1.2rem;">就诊科室:</div>
+                                    <div style="margin-left: -0.04rem;">{{department.department_name}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div style="width:1.2rem">就诊医生:</div>
+                                    <div style="margin-left:0;">
+                                        {{patInfo.doctor_name}}
+                                    </div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊排队:</div>
+                                    <div>{{num}}人</div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊人:</div>
+                                    <div>{{patInfo.user_name}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer> 
+                <footer id="footer" v-show="jiance==3&&show==1">
+                    <table></table>
+                    <div class="guahao">
+                        <p>
+                            挂号
+                        </p>
+                        <p @click="shut">
+                            
+                        </p>
+                        <div>
+                            <table></table>
+                            <div id="info">
+                                <p></p>
+                                <p>恭喜您挂号成功！</p>
+                                <p>请您于2019年12月04日到门诊楼神经内科8号诊室杨苏安医生处就诊，就诊号：A0131.</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer> 
+                <footer id="footer" v-show="jiance==4&&show==1">
+                    <table></table>
+                    <div class="guahao">
+                        <p>
+                            挂号
+                        </p>
+                        <p @click="shut">
+                            
+                        </p>
+                        <div >
+                            <table></table>
+                            <div id="info">
+                                <p style="background:url(../img/line/regist_fail.png) no-repeat center center;"></p>
+                                <p>人脸检测失败！</p>
+                                <p>如有需要请重新挂号</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer> 
+            </div>
+        </div>
+    </div>
+    <script src="../js/rem.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+    <script src="../js/gettime.js"></script>
+    <script src="../js/time.js"></script>
+    <script src="../pubJs/axios.js"></script>
+    <script src="../pubJs/pub.js"></script>
+    <script src="../pubJs/vue.js"></script>
+    <script src="../js/webSocket.js"></script>
+    <script src="../js/regist_es6.js"></script>
+    <script type="text/javascript">
+        function AutoScroll(obj) {
+          $(obj).find("ul:first").animate({
+            marginTop: "-100px"
+          }, 500, function() {
+            $(this).css({
+              marginTop: "0px"
+            }).find("li:first").appendTo(this);
+          });
+        }
+        $(document).ready(function() {
+          setInterval('AutoScroll("#s1")', 3000);
+        });
+    </script>
+</body>
+</html>

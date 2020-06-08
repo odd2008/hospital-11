@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上下班打卡</title>
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/punch_clock.css">
+    <!-- <link rel="stylesheet" href="../css/punch_clock copy.css"> -->
+<style>
+	.opcity{
+		width:1.5rem;
+		height:1.5rem;
+		background-color:rgba(0,0,0,0);
+		position: absolute;
+        top: 0;
+		right: 0;
+	}
+	</style>
+</head>
+<body>
+    <div class="bdy">
+<div class="opcity" onclick="init()">   
+        </div>
+        <div class="time">
+            <div class="datetime"></div>
+            <div class="date">
+                <span class="data"></span>
+                <span class="week"></span>
+            </div>
+            <div class="notice">请注视摄像头</div>
+        </div>
+        <div class="btn_group">
+            <a onclick="face_check()">
+                <div class="buton"></div>
+            </a>
+        </div>
+        <!-- 返回按钮，返回排队页面 -->
+    </div>
+    <script src="../js/rem.js"></script>
+    <script src="../js/gettime.js"></script>
+    <script src="../js/punch_lock.js"></script>
+<script>
+	var i=0;
+ function init()
+           {
+           i++
+           if(i>=5){
+            android.finishClose();
+            }
+           }
+</script>
+</body>
+</html>

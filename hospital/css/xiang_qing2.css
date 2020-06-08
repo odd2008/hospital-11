@@ -1,0 +1,220 @@
+.bdy{
+  width: 7.5rem;
+  height: 13.33rem;
+  background:url(../img/guabao_bg.png) no-repeat center center/100% 100%;
+}
+.head{
+  padding:0 0.39rem;
+  display: flex;
+  justify-content: space-between;  
+  align-content: center;
+  height: 0.9rem;
+  background:url(../img/line/bg_title.png) no-repeat center center/100% 100%;
+  padding-top: 0.12rem;
+}
+.goback{
+  display: inline-block;
+  width: 1.15rem;
+  height: 0.69rem;
+  margin-top: -0.08rem;
+  border-radius: 0 0.07rem 0.07rem 0;
+  font-family: SourceHanSansCN;
+  text-align: center; 
+  font-size: 0;
+}
+.goback img{
+  vertical-align: -0.1rem;
+}
+.title{
+  width: 2.63rem;
+height: 0.41rem;
+font-family: SourceHanSansCN;
+  font-size: 0.27rem;
+  text-align: center;
+font-weight: bold;
+font-stretch: normal;
+letter-spacing: 0.05rem;
+color: #ffffff;
+}
+.checktime{
+  width: 1.16rem;
+height: 0.16rem;
+font-family: SourceHanSansCN;
+font-size: 0.15rem;
+line-height: 0.17rem;
+  color: #ffffff;
+  justify-content: space-between;
+  margin-top: -0.03rem
+}
+.day{
+margin-right: 0.05rem;
+}
+.time{
+font-family: SourceHanSansCN;
+font-size: 0.24rem;
+font-weight: normal;
+font-stretch: normal;
+line-height: 0.42rem;
+letter-spacing: 0;
+color: #ffffff;
+}
+.face_container{
+  width: 6.65rem;
+height: 11.71rem;
+  border-radius: 0.02rem;
+  /* background: url(../img/middle_bgc.png) no-repeat center center/100% 100%; */
+  margin: 0.02rem auto;
+  padding-top: 0.30rem;
+}
+/*第一方块  开始*/
+.tips{
+  width: 6.25rem;
+  height: 2.11rem;
+  background-color:rgba(204,225,255,.1);
+  border-radius: 0.10rem;
+  margin: 0.5rem auto;
+  position: relative;
+}
+.pic_img{
+  width: 0.625rem;
+  height: 0.625rem;
+  position: absolute;
+  right: 45%;
+  top: -15%;
+  overflow: hidden;
+  border-radius: 0.5rem;
+	box-shadow: 0px 0.09rem 0.125rem 0px 
+		rgba(0,111, 255, 0.5);
+	border: solid 3px #ffffff;
+}
+.top{
+  width: 3.5rem;
+  height:1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  position: absolute;
+  left:20%;
+  top: 22%;
+}
+.top_name{
+  width: 1rem;
+    height: 0.3125rem;
+    font-family: SourceHanSansCN-Regular;
+    font-size: 0.312rem;
+    text-align: center;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.3rem;
+    letter-spacing: 0px;
+    color: #ffffff;
+    margin-bottom: 0.09rem;
+    margin-left: 1.36rem;
+}
+.top_keshi{
+  width: 2rem;
+  height: 0.3125rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 0.6rem;
+}
+.top_keshi p{
+	font-family: SourceHanSansCN-Regular;
+  font-size:0.25rem;
+  text-align: center;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 0.44rem;
+	letter-spacing: 0px;
+  color: #ffffff;
+}
+.top_yiyuan{
+  width: 3.5rem;
+	height:0.236rem;
+	font-family: SourceHanSansCN-Regular;
+	font-size: 0.25rem;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height:0.44rem;
+	letter-spacing: 0px;
+  color: #ffffff;
+  margin-top: 0.2rem;
+  text-align: center;
+  /* margin-left: 0.3rem; */
+
+}
+/*第一方块  结束*/
+
+
+/*第二方块  开始*/
+.pic{
+  width: 6.25rem;
+  height: 7.6rem;
+  background-color:rgba(204,225,255,.1);
+  border-radius: 0.10rem;
+  margin: 0 auto;
+  position: relative;
+}
+.pic_bgimg{
+  width: 0.25rem;
+	height:0.25rem;
+  background:url(../img/line/biaoji.png) no-repeat center center/100% 100%;
+  margin-top: 0.4rem;
+  margin-left: 0.4rem;
+}
+.pic_bgimg p{
+  width: 1.097rem;
+	height:0.26rem;
+	font-family: SourceHanSansCN-Regular;
+	font-size: 0.27rem;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height:0.33rem;
+	letter-spacing: 0px;
+  color: #ffffff;
+  margin-top: 0.2rem;
+  margin-left: 0.4rem;
+}
+.pic .pic_p{
+  width: 5.6rem;
+  height: 2.3rem;
+  font-family: SourceHanSansCN-Regular;
+  font-size: 0.20rem;
+  font-weight: normal;
+  font-stretch: normal;
+  line-height: 0.3125rem;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin: 0.2rem 0.35rem;
+}
+.wuren{
+  width:6.22rem;
+  height:4.3rem;
+  background-color:rgba(204,225,255,.1);
+  border-radius:0.138rem;
+  margin: 0 auto;
+  margin-top: 0.194rem;
+  position: relative;
+}
+.wuren .wuren_intr{
+  width: 5.8rem;
+	height: 4rem;
+	font-family: SourceHanSansCN-Regular;
+	font-size: 0.20rem;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 0.3125rem;
+	letter-spacing: 0px;
+  color: #ffffff;
+  margin-top: 0.2rem;
+  margin-left: 0.2rem;
+}
+
+
+/*挂号图片结束*/
+.clear:after{
+  content: '';
+  display: block;
+  clear: both;
+  }

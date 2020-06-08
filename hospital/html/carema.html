@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>挂号3</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="stylesheet" href="../css/regist.css">
+    <style>
+        #ul-imgs.transition {
+            transition: all 3.5s linear;
+        }
+        #footer .guahao{
+            bottom: 8.6rem;
+        }
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="bdy">
+            <div class="head">
+                <div class="checktime">
+                    <div class="date"></div>
+                    <div>
+                        <span class="day"></span>
+                        <span class="time"></span>
+                    </div>
+                </div>
+            </div>
+            <template v-if="!tipshow">
+                <!-- 底部信息 -->
+                <footer id="footer" v-show="jiance==0&&show==1">
+                    <div class="guahao">
+                        <p>
+                            挂号
+                        </p>
+                        <p @click="shut">
+
+                        </p>
+                        <div>
+                            <table></table>
+                            <p id="jiance">
+                                正在检测中...
+                            </p>
+                        </div>
+                    </div>
+                </footer>
+                <footer id="footer" v-show="jiance==1&&show==1">
+
+                    <div class="guahao">
+                        <p>
+                            挂号
+                        </p>
+                        <p @click="shut">
+
+                        </p>
+                        <div>
+                            <table></table>
+                            <p style="text-align: center;
+                            font-size: 0.25rem; color:#898989;height: 0.3rem; line-height: 0.3rem;">
+                                <template v-if="getid">正在挂号，请正对摄像头</template>
+                            </p>
+                            <div class="info" style="margin-top:0;">
+                                <div class="mess">
+                                    <div>就诊时间:</div>
+                                    <div>{{time}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊科室:</div>
+                                    <div>{{patInfo.DEPARTMENT_NAME}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊医生:</div>
+                                    <div id="choice">
+                                        <template v-for="(val,idx) in docList" :key="idx">
+                                            <div v-if="idx<6" class="yi" :class="{active:isActive==idx}"
+                                                @click="changeList(idx,val.DOCTOR_ID)">
+                                                {{val.DOCTOR_NAME}}
+                                            </div>
+                                        </template>
+                                    </div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊排队:</div>
+                                    <div>{{num+'人'}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊人:</div>
+                                    <div>{{patInfo.USER_NAME}}</div>
+                                </div>
+                            </div>
+                            <div class="btns">
+                                <p class="btn que" @click="shut"></p>
+                                <p class="btn qu" @click="success"></p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <footer id="footer" v-show="jiance==2&&show==1">
+                    <table></table>
+                    <div class="guahao">
+                        <p style="width:1.5rem">
+                            挂号信息
+                        </p>
+                        <p @click="shut">
+
+                        </p>
+                        <div>
+                            <table></table>
+                            <div class="info" style="margin-top:0.75rem;margin-left:1.25rem">
+                                <div class="mess">
+                                    <div>就诊时间:</div>
+                                    <div>{{time}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊编号:</div>
+                                    <div>{{patInfo.REGISTER_ORDER}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div style="width: 1.2rem;">就诊科室:</div>
+                                    <div style="margin-left: -0.04rem;">{{patInfo.DEPARTMENT_NAME}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div style="width:1.2rem">就诊医生:</div>
+                                    <div style="margin-left:0;">
+                                        {{patInfo.DOCTOR_NAME}}
+                                    </div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊排队:</div>
+                                    <div>{{num+'人'}}</div>
+                                </div>
+                                <div class="mess">
+                                    <div>就诊人:</div>
+                                    <div>{{patInfo.USER_NAME}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <footer id="footer" v-show="jiance==3&&show==1">
+                    <table></table>
+                    <div class="guahao">
+                        <p>
+                            挂号
+                        </p>
+                        <p @click="shut">
+
+                        </p>
+                        <div>
+                            <table></table>
+                            <div id="info">
+                                <p></p>
+                                <p>恭喜您挂号成功！</p>
+                                <!--<p>请您于2019年12月04日到门诊楼神经内科8号诊室杨苏安医生处就诊，就诊号：A0131.</p>-->
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                <footer id="footer" v-show="jiance==4&&show==1">
+                    <table></table>
+                    <div class="guahao">
+                        <p>
+                            挂号
+                        </p>
+                        <p @click="shut">
+
+                        </p>
+                        <div>
+                            <table></table>
+                            <div id="info">
+                                <p style="background:url(../img/line/regist_fail.png) no-repeat center center;"></p>
+                                <p>人脸检测失败！</p>
+                                <p>如有需要请重新挂号</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </template>
+            <footer id="footer" v-if="tipshow ">
+                <template v-if="nomessage">
+                    <table></table>
+                <div class="guahao">
+                    <p>
+                        提示
+                    </p>
+                    <p @click="shut">
+
+                    </p>
+                    <div>
+                        <table></table>
+                        <div id="info">
+                            <p style="background:url(../img/line/regist_fail.png) no-repeat center center;"></p>
+                            <p style="margin-bottom:0.12rem">{{tiptitle}}</p>
+                            <p style="color:rgba(36,36,36,.45)">{{tipmsg}}</p>
+
+                        </div>
+                    </div>
+                </div>
+                </template>
+                <template v-if="carematip">
+                    <table></table>
+                <div class="guahao">
+                    <p>
+                        提示
+                    </p>
+                    <p @click="shut">
+
+                    </p>
+                    <div>
+                        <table></table>
+                        <div id="info">
+                            <p style="display: none;"></p>
+                            <p>请正对摄像头</p>
+                        </div>
+                    </div>
+                </div>
+                </template>
+            </footer>
+
+        </div>
+    </div>
+    </div>
+    <script src="../js/rem.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../js/gettime.js"></script>
+    <script src="../js/time.js"></script>
+    <script src="../pubJs/axios.js"></script>
+    <script src="../../pub.js"></script>
+    <script src="../pubJs/vue.js"></script>
+    <script src="../js/webSocket.js"></script>
+    <script src="../../config.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                tipshow: true,
+                tiptitle: '提示',
+                tipmsg:'请正对摄像头',
+                nomessage:false,
+                carematip:true
+            },
+            methods: {
+                shut: function shut() {
+                    window.history.go(0)
+                }
+            },
+            created() { }
+        })
+    </script>
+</body>
+
+</html>

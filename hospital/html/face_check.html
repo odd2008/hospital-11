@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>识别结果</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/tool.css">
+    <link rel="stylesheet" href="../css/face_check.css">
+    <style>
+        .band {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .3);
+        }
+
+        .offcheck {
+            width: 4.72rem;
+            height: 3.43rem;
+            position: absolute;
+            top: 3.95rem;
+            left: 50%;
+            margin-left: -2.36rem;
+        }
+
+        .offcheck .pic_title {
+            width: 4.72rem;
+            height: 0.68rem;
+            line-height: 0.68rem;
+            margin-left: 0;
+        }
+
+        .offcheck .pic_content p {
+            width: 3.97rem;
+            height: 0.68rem;
+            font-size: 0.24rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.46rem;
+            letter-spacing: 0.02rem;
+            margin: 0 auto;
+        }
+
+        .group_btn {
+            margin-top: 0.62rem;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 0.6rem;
+        }
+
+        .button {
+            width: 1.61rem;
+            /* cursor: pointer; */
+            height: 0.9rem;
+            overflow: hidden;
+        }
+
+        .buton {
+            background: url(../img/line/lock.png) no-repeat center center;
+            background-size: 100%;
+            width: 4.88rem;
+            height: 1.74rem;
+            border-radius: 0.49rem;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bdy">
+        <div class="head">
+            <div class="goback"><img src="../img/line/goback.png" width="100%" alt=""></div>
+            <div class="title" style="text-align: center;">打卡</div>
+            <div class="checktime">
+                <div class="date"></div>
+                <div>
+                    <span class="day"></span>
+                    <span class="time"></span>
+                </div>
+            </div>
+        </div>
+        <div class="face_container">
+            <div class="tips">
+		<!--打卡中，请正对摄像头-->
+		</div>
+            <div class="pic">
+                <!-- <div class="middle_tip"></div> -->
+                <div class="pic_title">
+                    医生信息
+                    <!-- <img src="../img/line/close.png" alt=""> -->
+                </div>
+                <div class="pic_content">
+                    检测中...
+                </div>
+            </div>
+            <div class="check_result fail" style="display: none;">
+                <div class="mention mention_fail"></div>
+                <div class="txt_mention">
+                    很抱歉，打卡失败
+                </div>
+                <div style="padding-top: 15px; text-align: center;">
+                    <div class="repeat">
+                        <img width="100%" src="../img/line/repeat.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="check_result success" style="display: none;">
+                <div class="mention mention_success"></div>
+                <div class="txt_mention start">
+                    上班打卡成功
+                </div>
+                <div class="txt_mention end">
+                    下班打卡成功
+                </div>
+            </div>
+            <div class="check_result success" style="display:none">
+                <div class="buton offbtn"></div>
+            </div>
+            <div class="band">
+                <div class="pic offcheck">
+                    <!-- <div class="middle_tip"></div> -->
+                    <div class="pic_title" style="position:relative">
+                        提醒
+                        <span style="position:absolute; top:0.05rem;right:0.05rem;width:0.6rem;">
+                            <img src="../img/line/close.png" width="100%" style="display:block;margin:0" alt="">
+                        </span>
+                    </div>
+                    <div class="pic_content">
+                        <p>
+                            点击“确认”按钮后将会打卡下班，
+                            否则请点击取消或关闭。
+                        </p>
+                        <div class="group_btn">
+                            <div class="button">
+                                <img draggable="false" src="../img/cancle.png" width="100%" alt="">
+                            </div>
+                            <div class="button">
+                                <img draggable="false" src="../img/ensure.png" width="100%" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../../pub.js"></script>
+    <script src="../js/rem.js"></script>
+    <script src="../js/gettime.js"></script>
+    <script src="../js/webSocket.js"></script>
+    <script src="../js/jquery.js"></script>
+    <script src="../../config.js"></script>
+    <script src="../js/face_check.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+.bdy{
+    width: 7.5rem;
+    height: 13.33rem;
+    background:url(../img/background.png) no-repeat center center/100% 100%;
+    padding-top: 4.13rem;
+}
+.time{
+    width: 2.97rem;
+    height: 2.23rem;
+    margin: 0 auto;
+    color: #ffffff;
+}
+.datetime{
+    width: 2.97rem;
+	height: 0.88rem;
+	font-family: Quartz;
+	font-size: 0.99rem;
+	line-height: 0.88rem;
+    text-align: center;
+}
+.date{
+    margin-top: 0.38rem;
+    display: flex;
+    justify-content:space-between;
+    height: 0.28rem;
+    padding:0 0.2rem; 
+    font-size: 0.28rem;
+}
+.notice{
+    margin-top: 0.2rem;
+    text-align: center;
+    height: 0.29rem;
+	font-family: SourceHanSansCN;
+	font-size: 0.29rem;
+}
+.btn_group{
+    text-align: center;
+    margin-top: 4.18rem;
+}
+.buton{
+    background: url(../img/line/lock.png) no-repeat center center;
+	background-size: 100%;
+    width: 4.88rem;
+    height: 1.74rem;
+    border-radius: 0.49rem;
+    margin: 0 auto;
+}
